@@ -10,6 +10,7 @@ admin_id = '359715487'
 @app.route('/nomask', methods=['POST'])
 def index():
     request_data = request.get_json()
+    print(request_data)
     chat_id = request_data['id']
     location = request_data['location']
 
@@ -18,6 +19,7 @@ def index():
     bot.send_message(chat_id=chat_id, text=location)
 
     return "Hello Pidor"
+
 
 @app.route('/admin', methods=['POST'])
 def admin():

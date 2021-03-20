@@ -35,8 +35,17 @@ def echo(update, callback):
 
 def main():
     global db
+    path = 'db.json'
+
+    if not pathlib.Path(path).exists():
+        pathlib.Path(path).touch()
+
     with open("db.json") as f:
-        db = json.load(f)
+        try:
+            db = json.load(f)
+        except:
+            db = {}
+
     updater = Updater('1515946405:AAE96PUEIZr24Rnn_y-0RxYctO9acO2ukFw')
     dp = updater.dispatcher
 
