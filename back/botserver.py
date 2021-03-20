@@ -1,12 +1,12 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-import re
+
 
 def start(update, callback):
     bot = callback.bot
     chat_id = update.message.chat_id
-    user_name = update.message.chat.username
     bot.send_message(chat_id=chat_id, text="Hi")
-    bot.send_message(chat_id=chat_id, text="Send please your tits")
+    bot.send_message(chat_id=chat_id, text="Send please your photo")
+
 
 def echo(update, callback):
     bot = callback.bot
@@ -16,6 +16,7 @@ def echo(update, callback):
     newFile = bot.getFile(image.file_id)
     newFile.download(path)
     bot.send_message(chat_id=chat_id, text="Thanks, received")
+
 
 def main():
     updater = Updater('1515946405:AAE96PUEIZr24Rnn_y-0RxYctO9acO2ukFw')
