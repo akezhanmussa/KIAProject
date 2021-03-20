@@ -1,8 +1,10 @@
 import ds
+import requests
 
 
 def face_app():
     known_face_names, known_face_encodings = ds.services.face_encoder.generate_image_encodings('faces')
+    have_sent = set()
 
     with ds.services.camera.Camera() as camera:
         for frame in camera.read_frames(no_limit=True):
@@ -12,6 +14,14 @@ def face_app():
                 known_face_names,
             )
             ds.services.vision.display_with(frame, face_locations, face_names)
+
+            for face_name in face_names:
+                if face_name not in have_sent:
+                    requests.post(
+                        'http://127.0.0.1:5000/nomask',
+                        json=({'id': face_name}),
+                    )
+                    have_sent.add(face_name)
 
 
 def mask_app():
@@ -29,4 +39,4 @@ def mask_app():
 
 
 if __name__ == '__main__':
-    mask_app()
+    face_app()
