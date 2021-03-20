@@ -2,3 +2,4 @@
 .idea
 .DS_Store
 faces/.DS_Store
+__pycache__
