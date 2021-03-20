@@ -24,7 +24,9 @@ def app():
             else:
                 counter += 1
 
-            if counter > 100:
+            time.sleep(0.05)
+
+            if counter > 20:
                 face_locations, face_names = ds.services.detector.face_detect(
                     frame,
                     known_face_encodings,

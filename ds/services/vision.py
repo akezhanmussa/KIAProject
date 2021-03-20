@@ -22,15 +22,14 @@ def display_with(frame, face_locations, face_names):
 
 def display_mask_with_and_has_mask(frame, locs, preds):
     has_mask = True
-
     for (box, pred) in zip(locs, preds):
         (startX, startY, endX, endY) = box
         (mask, withoutMask) = pred
 
         label = WEARING_MASK if mask > withoutMask else NO_WEARING_MASK
         color = (0, 255, 0) if label == WEARING_MASK else (0, 0, 255)
-        label = f'Person is {label}: {max(mask, withoutMask) * 100}'
         has_mask = True if label == WEARING_MASK else False
+        label = f'Person is {label}: {max(mask, withoutMask) * 100}'
 
         cv2.putText(
             frame,
