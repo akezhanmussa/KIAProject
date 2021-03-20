@@ -27,7 +27,14 @@ def app():
                     if face_name not in have_sent:
                         requests.post(
                             'http://127.0.0.1:5000/nomask',
-                            json=({'id': face_name}),
+                            json=(
+                                {
+                                    'id': face_name,
+                                },
+                                {
+                                    'location': ds.services.location.current_location(),
+                                },
+                            ),
                         )
                         have_sent.add(face_name)
 
