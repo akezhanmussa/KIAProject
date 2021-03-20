@@ -1,4 +1,5 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+import pathlib
 
 
 def start(update, callback):
@@ -12,7 +13,13 @@ def echo(update, callback):
     bot = callback.bot
     chat_id = update.message.chat_id
     image = update.message.photo[-1]
-    path = 'faces/{0}.jpg'.format(chat_id)
+
+    faces_dir = 'faces'
+
+    if not pathlib.Path(faces_dir).exists():
+        pathlib.Path(faces_dir).mkdir()
+
+    path = f'{faces_dir}/{chat_id}.jpg'
     newFile = bot.getFile(image.file_id)
     newFile.download(path)
     bot.send_message(chat_id=chat_id, text="Thanks, received")
