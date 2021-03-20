@@ -3,3 +3,4 @@ from . import camera
 from . import detector
 from . import face_encoder
 from . import vision
+from . import location
