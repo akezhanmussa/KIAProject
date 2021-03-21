@@ -2,11 +2,11 @@
 # KIA Project 
 ## Mask Mode Tracking System in Public/Private Organizations
 
-#### Design 
+#### Design:
 * Telegram Bot - Face registration platform
 * Face/Mask recognition - Real Time Library dlib HOG
 
-#### Potential 
+#### Potential Use:
 ##### Clients:
 • Organizations
 ##### Monetization:
