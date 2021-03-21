@@ -7,10 +7,10 @@
 * Face/Mask recognition - Real Time Library dlib HOG
 
 #### Potential 
-#####Clients:
+##### Clients:
 • Organizations
-#####Monetization:
+##### Monetization:
 • Subscription for system software support and Software sales
-#####Improvements:
+##### Improvements:
 * Analytics of the frequency of wearing masks in public places 
 * Potential Infection Notifications
